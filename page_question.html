@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plateforme Concours Université</title>
+<link rel="stylesheet" href="plateforme.css">
+</head>
+<header class="header">
+    <div class="logo">LOGO DU SITE</div>
+    <nav>
+        <a href="plateforme.html">Accueil</a>
+        <a href="#">Cours</a>
+        <a href="connexion.html" class="btn">Connexion</a>
+        <a href="inscription.html" class="btn-primary">S’inscrire</a>
+    </nav>
+</header>
+<body>
+
+<div class="container">
+  <div class="question-header">
+    <h2 id="numeroQuestion">Question 1 / 5</h2>
+    <span id="matiere">Mathématiques</span>
+    <span>Score: <span id="score">0</span></span>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <div class="question-text" id="questionText">💬 La question apparaîtra ici</div>
+
+  <div class="answers" id="answersContainer"></div>
+
+  <div class="feedback" id="feedback"></div>
+</div>
+
+<script>
+let questions = [
+  {type:"text", matiere:"Mathématiques", question:"2 + 3 = ?", answer:"5"},
+  {type:"multiple", matiere:"Mathématiques", question:"5 x 2 = ?", options:["7","8","10","12"], answer:"10"},
+  {type:"text", matiere:"Physique", question:"La force d'attraction exercée par un astre sur un objet ?", answer:["le poids","la force de la pesenteur","l'attraction gravitationnelle"]},
+  {type:"multiple", matiere:"Physique", question:"10 ÷ 2 = ?", options:["2","5","8","4"], answer:"5"},
+  {type:"text", matiere:"Chimie", question:"La formule chimique de l'eau est", answer:"H2O"}
+];
+
+let currentIndex = 0;
+let score = 0;
+let answered = false;
+
+const numeroQuestion = document.getElementById('numeroQuestion');
+const matiere = document.getElementById('matiere');
+const questionText = document.getElementById('questionText');
+const answersContainer = document.getElementById('answersContainer');
+const feedback = document.getElementById('feedback');
+const scoreDisplay = document.getElementById('score');
+const progressBar = document.getElementById('progressBar');
+
+// ===== Load Question =====
+function loadQuestion(){
+  answered = false;
+  const q = questions[currentIndex];
+  numeroQuestion.innerText = `Question ${currentIndex+1} / ${questions.length}`;
+  matiere.innerText = q.matiere;
+  questionText.innerText = q.question;
+  feedback.innerText = '';
+  answersContainer.innerHTML = '';
+  progressBar.style.width = `${(currentIndex / questions.length) * 100}%`;
+
+  if(q.type==="text"){
+    const input = document.createElement('input');
+    input.type="text";
+    input.id="userAnswer";
+    input.placeholder="Écris ta réponse ici";
+    input.className="answer-input";
+    answersContainer.appendChild(input);
+
+    const btn = document.createElement('button');
+    btn.innerText="Valider";
+    btn.className="btn-primary01"; // <-- style comme S’inscrire
+    btn.onclick = () => checkAnswerText();
+    answersContainer.appendChild(btn);
+
+  } else {
+    q.options.forEach(opt=>{
+      const div = document.createElement('div');
+      div.className="answer";
+      div.innerText=opt;
+      div.onclick = () => checkAnswerMultiple(opt, div);
+      answersContainer.appendChild(div);
+    });
+  }
+}
+
+// ===== Normalisation =====
+function normalize(text){
+  return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
+}
+
+// ===== Check Text =====
+function checkAnswerText(){
+  if(answered) return; // une seule tentative
+  const input = document.getElementById("userAnswer");
+  const answer = normalize(input.value);
+  if(answer==="") return alert("Écris ta réponse !");
+
+  const q = questions[currentIndex];
+  let correct = q.answer;
+  let isCorrect = false;
+
+  if(Array.isArray(correct)){
+    isCorrect = correct.some(ans => normalize(ans)===answer);
+  } else {
+    isCorrect = normalize(correct)===answer;
+  }
+
+  answered = true;
+  if(isCorrect){ score++; feedback.innerText="Bonne réponse ✅"; }
+  else{ feedback.innerText = Array.isArray(correct)? `Mauvaise réponse ❌ La bonne réponse : ${correct.join(" / ")}`:`Mauvaise réponse ❌ La bonne réponse : ${correct}`; }
+
+  scoreDisplay.innerText = score;
+
+  setTimeout(nextQuestion, 1000); // passe automatiquement
+}
+
+// ===== Check Multiple =====
+function checkAnswerMultiple(choice, btn){
+  if(answered) return; // une seule tentative
+  const q = questions[currentIndex];
+  const correct = q.answer;
+  answered = true;
+
+  if(choice === correct){
+    btn.classList.add("correct");
+    score++; feedback.innerText="Bonne réponse ✅";
+  } else {
+    btn.classList.add("incorrect");
+    feedback.innerText = `Mauvaise réponse ❌ La bonne réponse : ${correct}`;
+  }
+
+  scoreDisplay.innerText = score;
+
+  // bloquer les autres boutons
+  [...answersContainer.children].forEach(b=>b.style.pointerEvents="none");
+
+  setTimeout(nextQuestion, 1000); // passe automatiquement
+}
+
+// ===== Next Question =====
+function nextQuestion(){
+  currentIndex++;
+  if(currentIndex < questions.length){
+    loadQuestion();
+  } else {
+    alert(`Quiz terminé ! Score final : ${score}/${questions.length}`);
+  }
+}
+
+// Initialisation
+loadQuestion();
+</script>
+</body>
+</html>

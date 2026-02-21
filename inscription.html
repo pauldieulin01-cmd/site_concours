@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme Concours Université</title>
+    <link rel="stylesheet" href="plateforme.css">
+</head>
+<header class="header">
+    <div class="logo">LOGO DU SITE</div>
+    <nav>
+        <a href="plateforme.html">Accueil</a>
+        <a href="#">Cours</a>
+        <a href="connexion.html" class="btn">Connexion</a>
+        <a href="inscription.html" class="btn-primary">S’inscrire</a>
+    </nav>
+</header>
+<section class="signup">
+       <form class="signup-form">
+        <h2>Créer un compte gratuitement</h2>
+        <p>Inscrivez-vous et commencez votre préparation dès aujourd’hui.👇</p>
+        <div class="form-group">
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" placeholder="Entrez votre nom" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" placeholder="exemple@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" placeholder="********" required>
+        </div>
+
+        <div class="form-group">
+            <label for="niveau">Niveau d’étude</label>
+            <select id="niveau" required>
+                <option value="">-- Choisissez --</option>
+                <option>Serie SVT</option>
+                <option>Serie MP</option>
+                <option>Serie SES</option>
+                <option>Serie LLA</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="option">Option choisie</label>
+            <select id="option" required>
+                <option value="">-- Choisissez --</option>
+                <option>Genie</option>
+                <option>Medecine/Sces infirmières</option>
+                <option>Sces agronomiques</option>
+                <option>Sces humaines</option>
+                <option>Sces educations</option>
+                <option>Sces economiques</option>
+                <option>Sces juridiques</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="entite">Entités choisies</label>
+            <select id="option" required>
+                <option value="">-- Choisissez --</option>
+                <option>FACULTE DE MEDECINE ET DE PHARMACIE (FMP)</option>
+                <option>CAMPUS HENRY CHRISTOPHE DE LIMONADE (CHCL)</option>
+                <option>FACULTE DES SCIENCES HUMAINES (FASCH)</option>
+                <option>ECOLE D'INFIRMIERES NOTRE DAME DE LA SAGESSE DU CAP HAITIEN (EINDS)</option>
+                <option>ECOLE NATIONALE D'INFIRMIERES DE PORT-AU-PRINCE (ENIP)</option>
+                <option>ECOLE DES INFIRMIERES NOTRE DAME DE PERPETUEL SECOURS DE JEREMIE (EINDPS)</option>
+                <option>ECOLE NATIONALE D'INFIRMIERES DES CAYES (ENIC)</option>
+                <option>ECOLE DE DROIT ET DES SCIENCES ECONOMIQUES DE FORT-LIBERTE (EDSEFL)</option>
+                <option>ECOLE DE DROIT ET DES SCIENCES ECONOMIQUES DE PORT-DE-PAIX (EDSEPP)</option>
+                <option>FACULTE DE DROIT, DES SCIENCES ECONOMIQUES ET DE GESTION DU CAP-HAITIEN (FDSEG-CAP)</option>
+                <option>ECOLE DE DROIT DE JACMEL (EDJ)</option>
+                <option>FACULTE DE LINGUISTIQUE APPLIQUEE (FLA)</option>
+                <option>ECOLE DE DROIT ET DES SCIENCES ECONOMIQUES DES CAYES (EDSEC)</option>
+                <option>ECOLE DE DROIT DE HINCHE (EDH)</option>
+                <option>ECOLE NORMALE SUPERIEURE (ENS)</option>
+                <option>FACULTE D'ODONTOLOGIE (FO)</option>
+                <option>FACULTE D'AGRONOMIE ET DE MEDECINE VETERINAIRE (FAMV)</option>
+                <option>INSTITUT D'ETUDES ET DE RECHERCHES AFRICAINES D'HAITI (IERAH)</option>
+                <option>ECOLE DE DROIT ET D'ECONOMIE DES GONAIVES (EDSEG)</option>
+                <option>INSTITUT NATIONAL D'ADMINISTRATION DE GESTION ET DES HAUTES ETUDES INTERNATIONALES (INAGHEI)</option>
+                <option>FACULTE DE DROIT ET DES SCIENCES ECONOMIQUES (FDSE)</option>
+                <option>FACULTE DES SCIENCES (FDS)</option>
+                <option>FACULTE D'ETHNOLOGIE (FE)</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-primary">S’inscrire</button>
+
+        <p class="login-link">
+            Vous avez déjà un compte ? <a href="connexion.html">Se connecter</a>
+        </p>
+    </form>
+</section>
+<div id="backdrop" class="backdrop"></div>
+<!-- CONTACT ET A PROPOS-->
+<section id="about" class="toggle-section">
+    <h2>À propos de la plateforme</h2>
+    <p>
+        Nous aidons les étudiants haïtiens à réussir les concours
+        d’entrée aux universités publiques grâce à des tests,
+        cours ciblés et un suivi intelligent.
+    </p>
+</section>
+
+<section id="contact" class="toggle-section">
+    <h2>Contactez-nous</h2>
+    <p>📧 Email : contact@concours.ht</p>
+    <p>📞 Téléphone : +509 00 00 0000</p>
+</section>
+
+<footer class="footer">
+        <a href="plateforme.css" class="btn"> Accueil </a>
+        <a href="#" class="btn"> Cours </a>
+       <a class="#" data-target="about">À propos <span class="arrow">⬇</span></a>
+        <a class="#" data-target="contact">Contact <span class="arrow">⬇</span></a>
+        <a href="connexion.html" class="btn"> Conditions générales </a>
+        <a href="inscription.html" class="btn">Politique de confidentialité</a>
+        </div>
+        <div>
+            <p>© 2026 — Plateforme Concours Université</p>
+        </div>
+</footer>
+<script src="plateforme.js"></script>

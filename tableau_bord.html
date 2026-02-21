@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plateforme Concours Université</title>
+<link rel="stylesheet" href="plateforme.css">
+</head>
+<header class="header">
+    <div class="logo">LOGO DU SITE</div>
+    <nav>
+        <a href="plateforme.html">Accueil</a>
+        <a href="#">Cours</a>
+        <a href="connexion.html" class="btn">Connexion</a>
+        <a href="inscription.html" class="btn-primary">S’inscrire</a>
+    </nav>
+</header>
+<body>
+
+<div class="dashboard">
+
+  <!-- Colonne gauche: photo + compte + niveau + classement -->
+  <div class="sidebar">
+    <div class="photo-container">
+      <img id="user-photo" src="https://via.placeholder.com/120" alt="Photo utilisateur">
+      <input type="file" accept="image/*" onchange="previewPhoto(event)">
+    </div>
+
+    <div class="account-info">
+      <h3>Dieulin Paul</h3>
+      <p>Email: dieulin@example.com</p>
+      <p>Étudiant en Mathématiques</p>
+      <div class="level">🚀 Niveau: 🟢 Débutant</div>
+      <div class="ranking">🏅 Classement: 125 / 3 420</div>
+      <div class="section">
+        <h2>Ils avancent. Avanceras-tu avec eux ou les laisseras-tu te dépasser ?</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Colonne principale -->
+  <div class="main">
+
+    <div class="section">
+      <h2>🎯 Objectif du jour</h2>
+      <p>Chaque question te rapproche un peu plus de ton admission. Continue, tu es sur la bonne voie.</p>
+    </div>
+
+    <div class="section">
+      <h2>📌 Reprendre là où tu t’es arrêté</h2>
+      <p>Mathématiques – Question 12 / 30</p>
+      <p>💬 "Tu as déjà fait le plus dur. Encore quelques questions et tu peux dépasser 47 étudiants."</p>
+      <a href="page_question.html" class="btn-primary" id="startBtn">▶ Continuer le test</a>
+    </div>
+
+    <div class="section">
+      <h2>📚 Choisir une matière</h2>
+      <p>Entraîne-toi sur ce que tu veux améliorer ou consolide ce que tu maîtrises déjà.</p>
+      <div>
+        <a href="#" class="btn-secondary">Mathématiques</a>
+        <a href="#" class="btn-secondary">Physique</a>
+        <a href="#" class="btn-secondary">Chimie</a>
+        <a href="#" class="btn-secondary">Culture générale</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎲 Questions aléatoires</h2>
+      <p>Teste ton niveau réel et prépare-toi aux surprises du concours.</p>
+      <a href="#" class="btn-primary">Commencer un test aléatoire</a>
+    </div>
+
+    <div class="section">
+      <h2>📊 Ta progression</h2>
+      <div class="progress-bar">
+        <div id="math" style="background-color:#4CAF50;">Mathématiques – 70%</div>
+        <div id="phys" style="background-color:#039be5;">Physique – 40%</div>
+        <div id="chem" style="background-color:#ff9800;">Chimie – 20%</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="motivation-text" id="motivation">
+        💬 Continue comme ça, Physique mérite un peu plus d'attention !
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // Prévisualiser la photo
+  function previewPhoto(event){
+    const reader = new FileReader();
+    reader.onload = function(){
+      document.getElementById('user-photo').src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+  // Animation barres de progression
+  setTimeout(() => {
+    document.getElementById('math').style.width = '70%';
+    document.getElementById('phys').style.width = '40%';
+    document.getElementById('chem').style.width = '20%'; 
+  }, 200);
+
+</script>
+<footer class="footer">
+    <a href="plateforme.html" class="btn"> Accueil </a>
+    <a class="#" data-target="about">À propos <span class="arrow">⬇</span></a>
+    <a class="#" data-target="contact">Contact <span class="arrow">⬇</span></a>
+    <a href="#" class="btn"> Conditions générales </a>
+    <a href="#" class="btn">Politique de confidentialité</a>
+    </div>
+    <div>
+        <p>© 2026 — Plateforme Concours Université</p>
+    </div>
+</footer>
+<script src="plateforme.js"></script>
+</body>
+</html>

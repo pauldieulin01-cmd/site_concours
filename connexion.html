@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="plateforme.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">LOGO DU SITE</div>
+    <nav>
+        <a href="plateforme.html">Accueil</a>
+        <a href="#">Cours</a>
+        <a href="connexion.html" class="btn">Connexion</a>
+        <a href="inscription.html" class="btn-primary">S’inscrire</a>
+    </nav>
+</header>
+
+<section class="auth-hero">
+    <div class="auth-overlay"></div>
+
+    <div class="auth-card">
+        <h2>Bienvenue 👋</h2>
+        <p>Connectez-vous pour continuer votre préparation au concours</p>
+
+        <form class="utilisateur"  action="#" method="post">
+            <input type="text" placeholder="Nom d’utilisateur" required>
+            <input type="password" placeholder="Mot de passe" required>
+
+            <button class="btn-primary">Se connecter</button>
+        </form>
+
+        <div class="auth-links">
+            <span>Pas encore de compte ?</span>
+            <a href="inscription.html">S’inscrire gratuitement</a>
+        </div>
+    </div>
+</section>
+<div id="backdrop" class="backdrop"></div>
+<!-- CONTACT ET A PROPOS-->
+<section id="about" class="toggle-section">
+    <h2>À propos de la plateforme</h2>
+    <p>
+        Nous aidons les étudiants haïtiens à réussir les concours
+        d’entrée aux universités publiques grâce à des tests,
+        cours ciblés et un suivi intelligent.
+    </p>
+</section>
+
+<section id="contact" class="toggle-section">
+    <h2>Contactez-nous</h2>
+    <p>📧 Email : contact@concours.ht</p>
+    <p>📞 Téléphone : +509 00 00 0000</p>
+</section>
+
+<footer class="footer">
+    <a href="plateforme.html" class="btn"> Accueil </a>
+        <a href="#" class="btn"> Cours </a>
+        <a class="#" data-target="about">À propos <span class="arrow">⬇</span></a>
+        <a class="#" data-target="contact">Contact <span class="arrow">⬇</span></a>
+        <a href="#" class="btn"> Conditions générales </a>
+        <a href="#" class="btn">Politique de confidentialité</a>
+        </div>
+        <div>
+            <p>© 2026 — Plateforme Concours Université</p>
+        </div>
+</footer>
+<script src="plateforme.js"></script>
+</body>
+</html>
